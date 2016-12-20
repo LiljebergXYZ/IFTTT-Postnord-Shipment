@@ -6,8 +6,8 @@ var ifttt_api = '';
 
 if (args.length == 0) {
 	try {
-				// Does the file exists?
-				fs.statSync(__dirname + '/config.json');
+		// Does the file exists?
+		fs.statSync(__dirname + '/config.json');
 		var config = fs.readFileSync(__dirname + '/config.json', 'utf8');
 				config = JSON.parse(config);
 		if (typeof config.ifttt !== 'undefined') {
@@ -35,10 +35,10 @@ function CheckShipment(id) {
 	endpoint = endpoint.replace('{0}', id);
 	
 	try {
-			// Does the file exists?
+		// Does the file exists?
 		fs.statSync(__dirname + '/log.txt');
 	} catch (e) {
-			// It probably doesn't, let's create it
+		// It probably doesn't, let's create it
 		fs.writeSync(__dirname + '/log.txt', '');
 	}
 	fs.appendFileSync(__dirname + '/log.txt', 'Running at ' + (new Date().toLocaleString()) + '. Looking up ' + id + '\n');
