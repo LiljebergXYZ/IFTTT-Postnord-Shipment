@@ -2,6 +2,8 @@
 
 Instructions will be added later...
 
+## Usage
+
 You can fill out the config.json
 ```
 {
