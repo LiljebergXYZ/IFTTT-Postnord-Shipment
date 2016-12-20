@@ -19,3 +19,5 @@ You can fill out the config.json
 or launch it from the terminal
 
 `node index.js ThISIsaNEXAMplestrIng UA12345678SE`
+
+![Telegram integration](http://i.imgur.com/MOAH48c.png)
