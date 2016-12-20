@@ -4,8 +4,8 @@ Instructions will be added later...
 
 ## Usage
 
-1. Get your IFTTT maker token from: [https://ifttt.com/services/maker/settings](https://ifttt.com/services/maker/settings)
-2. Create a recipee/applet with maker for the event "shipment_change"
+1. Get your IFTTT Maker token from: [https://ifttt.com/services/maker/settings](https://ifttt.com/services/maker/settings)
+2. Create an applet with the Maker service using the event "shipment_change"
 3. Run
 
 You can fill out the config.json
