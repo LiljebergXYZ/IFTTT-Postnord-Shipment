@@ -7,8 +7,8 @@ var ifttt_api = '';
 if (args.length == 0) {
 	try {
                 // Does the file exists?
-                fs.statSync(__dirname+'/config.json');
-		var config = fs.readFileSync(__dirname+'/config.json', 'utf8');
+                fs.statSync(__dirname + '/config.json');
+		var config = fs.readFileSync(__dirname + '/config.json', 'utf8');
                 config = JSON.parse(config);
 		if (typeof config.ifttt !== 'undefined') {
 			ifttt_api = config.ifttt;
@@ -36,12 +36,12 @@ function CheckShipment(id) {
 	
 	try {
         	// Does the file exists?
-		fs.statSync(__dirname+'/log.txt');
+		fs.statSync(__dirname + '/log.txt');
 	} catch (e) {
 	        // It probably doesn't, let's create it
-		fs.writeSync(__dirname+'/log.txt', '');
+		fs.writeSync(__dirname + '/log.txt', '');
 	}
-	fs.appendFileSync(__dirname+'/log.txt', 'Running at ' + (new Date().toLocaleString()) + '. Looking up ' + id + '\n');
+	fs.appendFileSync(__dirname + '/log.txt', 'Running at ' + (new Date().toLocaleString()) + '. Looking up ' + id + '\n');
 
 	got(endpoint, {json: true}).then(res => {
 		var events = res.body.TrackingInformationResponse.shipments[0].items[0].events;
