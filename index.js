@@ -57,7 +57,7 @@ function CheckShipment(id) {
 		data = JSON.parse(data);
 		if (typeof data[id] !== 'undefined') {
 			if (data[id].eventCode != latestEvent.eventCode) {
-				data[id] = latestEvent;
+				data[id] = latestEvent; // Event code z65 means it has arrived
 				sendNotification(id, latestEvent.eventDescription);
 			} else {
 				fs.appendFileSync(__dirname + '/log.txt', '=>No new event found' + '\n');
