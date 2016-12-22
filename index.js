@@ -3,15 +3,19 @@ const got = require('got');
 
 var args = process.argv.slice(2);
 var ifttt_api = '';
+var locale = 'en';
 
 if (args.length == 0) {
 	try {
 		// Does the file exists?
 		fs.statSync(__dirname + '/config.json');
 		var config = fs.readFileSync(__dirname + '/config.json', 'utf8');
-				config = JSON.parse(config);
+		config = JSON.parse(config);
 		if (typeof config.ifttt !== 'undefined') {
 			ifttt_api = config.ifttt;
+		}
+		if(typeof config.locale !== 'undefined') {
+			locale = config.locale;
 		}
 		if (typeof config.shipments !== 'undefined') {
 			for (var i = 0; i < config.shipments.length; i++) {
@@ -31,8 +35,9 @@ if (args.length == 0) {
 }
 
 function CheckShipment(id) {
-	var endpoint = 'https://api1.postnord.com/rest/shipment/web/v1/trackandtrace/findByIdentifier.json?consumerId=5cad0846657e4825b50e16d1e1991713&id={0}&locale=en';
+	var endpoint = 'https://api1.postnord.com/rest/shipment/web/v1/trackandtrace/findByIdentifier.json?consumerId=5cad0846657e4825b50e16d1e1991713&id={0}&locale={1}';
 	endpoint = endpoint.replace('{0}', id);
+	endpoint = endpoint.replace('{1}', locale);
 	
 	try {
 		// Does the file exists?
